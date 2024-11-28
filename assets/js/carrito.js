@@ -48,15 +48,19 @@
                     const DOMcarrito = document.querySelector('#carrito');
                     const DOMtotal = document.querySelector('#total');
                     const DOMbotonVaciar = document.querySelector('#boton-vaciar');
-                
+                    const miLocalStorage = window.localStorage;
+                    const filtroSelect = document.getElementById("filtro");
 
                 //seccion de funciones 
                 /*
                 Dibujamos todos los productos a partir de la base de datos
                 */
-               function renderizarProductos(){
-                baseDeDatos.forEach((info) =>{
-                    //estructura
+                function renderizarProductos() {
+                    DOMitems.innerHTML = "";
+                    const filtro = filtroSelect.value;
+                    const productosFiltrados = baseDeDatos.filter(producto => 
+                        filtro === "todas" || producto.categoria === filtro);
+                        //estructura
                     const miNodo = document.createElement('div');
                     miNodo.classList.add('card','col-sm-4');
                     //body
