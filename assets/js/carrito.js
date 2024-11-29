@@ -46,59 +46,59 @@ document.addEventListener('DOMContentLoaded',() =>{
             categoria: consulta Externa
         },
     ];
-                    let carrito = [];
-                    const divisa = '$';
-                    const DOMitems = document.querySelector('#items');
-                    const DOMcarrito = document.querySelector('#carrito');
-                    const DOMtotal = document.querySelector('#total');
-                    const DOMbotonVaciar = document.querySelector('#boton-vaciar');
-                    const miLocalStorage = window.localStorage;
-                    const filtroSelect = document.getElementById("filtro");
 
-                //seccion de funciones 
-                /*
-                Dibujamos todos los productos a partir de la base de datos
-                */
-                function renderizarProductos() {
-                    DOMitems.innerHTML = "";
-                    const filtro = filtroSelect.value;
-                    const productosFiltrados = baseDeDatos.filter(producto => 
-                        
-                        filtro === "todas" || producto.categoria === filtro);
-                        //estructura
-                        const miNodo = document.createElement('div');
-                        miNodo.classList.add('card','col-sm-4');
-                        //body
-                        const miNodoCardBody = document.createElement('div');
-                        miNodoCardBody.classList.add('card-body');
-                        //titulo
-                        const miNodoTitle = document.createElement('h6');
-                        miNodoTitle.classList.add('card-tilte');
-                        miNodoTitle.textContent =info.nombre;
-                        //imagen
-                        const miNodoImagen = document.createElement('img');
-                        miNodoImagen.classList.add('img-fluid');
-                        miNodoImagen.setAttribute('src',info.imagen);
-                        //precio
-                        const miNodoPrecio = document.createElement('p');
-                        miNodoPrecio.classList.add('card-text');
-                        miNodoPrecio.textContent =  `${divisa}${info.precio}`;
-                        // Boton
-                        const miNodoBoton = document.createElement('button');
-                        miNodoBoton.classList.add('btn', 'btn-primary');
-                        miNodoBoton.textContent = 'Agregar';
-                        miNodoBoton.setAttribute('marcador', info.id);
-                        miNodoBoton.addEventListener('click', anadirProductoAlCarrito);
+    let carrito = [];
+    const divisa = '$';
+    const DOMitems = document.querySelector('#items');
+    const DOMcarrito = document.querySelector('#carrito');
+    const DOMtotal = document.querySelector('#total');
+    const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+    const miLocalStorage = window.localStorage;
+    const filtroSelect = document.getElementById("filtro");
 
-                        //insertamos
-                        miNodoCardBody.appendChild(miNodoImagen);
-                        miNodoCardBody.appendChild(miNodoTitle);
-                        miNodoCardBody.appendChild(miNodoPrecio);
-                        miNodoCardBody.appendChild(miNodoBoton);
-                        miNodo.appendChild(miNodoCardBody);
-                        DOMitems.appendChild(miNodo);
-                });
-            }
+    //funciones 
+    
+    function renderizarProductos() {
+        DOMitems.innerHTML = "";
+
+        const filtro = filtroSelect.value;
+        const productosFiltrados = baseDeDatos.filter(producto =>            
+            filtro === "todas" || producto.categoria === filtro);
+            //estructura
+        productosFiltrados.forEach((info) => {
+            const miNodo = document.createElement('div');
+            miNodo.classList.add('card','col-sm-4');
+            //body
+            const miNodoCardBody = document.createElement('div');
+            miNodoCardBody.classList.add('card-body');
+            //titulo
+            const miNodoTitle = document.createElement('h6');
+            miNodoTitle.classList.add('card-tilte');
+            miNodoTitle.textContent =info.nombre;
+            //imagen
+            const miNodoImagen = document.createElement('img');
+            miNodoImagen.classList.add('img-fluid');
+            miNodoImagen.setAttribute('src',info.imagen);
+            //precio
+            const miNodoPrecio = document.createElement('p');
+            miNodoPrecio.classList.add('card-text');
+            miNodoPrecio.textContent =  `${divisa}${info.precio}`;
+            // Boton
+            const miNodoBoton = document.createElement('button');
+            miNodoBoton.classList.add('btn', 'btn-primary');
+            miNodoBoton.textContent = 'Agregar';
+            miNodoBoton.setAttribute('marcador', info.id);
+            miNodoBoton.addEventListener('click', anadirProductoAlCarrito);
+
+            //insertamos
+            miNodoCardBody.appendChild(miNodoImagen);
+            miNodoCardBody.appendChild(miNodoTitle);
+            miNodoCardBody.appendChild(miNodoPrecio);
+            miNodoCardBody.appendChild(miNodoBoton);
+            miNodo.appendChild(miNodoCardBody);
+            DOMitems.appendChild(miNodo);
+        });
+    }
 // Obtén el contador del almacenamiento local
 let visitas = localStorage.getItem('contadorVisitas');
 
@@ -116,18 +116,17 @@ localStorage.setItem('contadorVisitas', visitas);
 // Muestra el contador en la página
 document.getElementById('contador').textContent = visitas;
                /**
-          * Evento para añadir un producto al carrito de la compra
-          */
-          function anadirProductoAlCarrito(evento) {
-              // Anyadimos el Nodo a nuestro carrito
-              carrito.push(evento.target.getAttribute('marcador'))
-              // Actualizamos el carrito
-              renderizarCarrito();
-              
+    * Evento para añadir un producto al carrito de la compra
+    */
+    function anadirProductoAlCarrito(evento) {
+        // Anyadimos el Nodo a nuestro carrito
+        carrito.push(evento.target.getAttribute('marcador'))
+        // Actualizamos el carrito
+        renderizarCarrito();
+        guardarCarritoEnLocalStorage();
+        handleCarritoValue(carrito.length)
 
-                handleCarritoValue(carrito.length)
-
-          }
+          
           function handleCarritoValue(value) {
             const carritoContainer = document.getElementById("carrito-value");
             carritoContainer.textContent =  `${value}`
