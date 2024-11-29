@@ -1,8 +1,8 @@
 
 //DOM
-document.addEventListener('DOMContentLoaded',() =>{
-    //Variables -base de datos
-    const baseDeDatos=[
+document.addEventListener('DOMContentLoaded', () => { 
+    // Variables
+    const baseDeDatos = [
         {
             id:1,
             nombre: 'Medicina Psiquiatrica',
