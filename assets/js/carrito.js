@@ -1,6 +1,4 @@
 
-//DOM
-<script>
                 //DOM
                 document.addEventListener('DOMContentLoaded',() =>{
                     //Variables -base de datos
@@ -59,41 +57,58 @@
                     DOMitems.innerHTML = "";
                     const filtro = filtroSelect.value;
                     const productosFiltrados = baseDeDatos.filter(producto => 
+                        
                         filtro === "todas" || producto.categoria === filtro);
                         //estructura
-                    const miNodo = document.createElement('div');
-                    miNodo.classList.add('card','col-sm-4');
-                    //body
-                    const miNodoCardBody = document.createElement('div');
-                    miNodoCardBody.classList.add('card-body');
-                    //titulo
-                    const miNodoTitle = document.createElement('h6');
-                    miNodoTitle.classList.add('card-tilte');
-                    miNodoTitle.textContent =info.nombre;
-                    //imagen
-                    const miNodoImagen = document.createElement('img');
-                    miNodoImagen.classList.add('img-fluid');
-                    miNodoImagen.setAttribute('src',info.imagen);
-                    //precio
-                    const miNodoPrecio = document.createElement('p');
-                    miNodoPrecio.classList.add('card-text');
-                    miNodoPrecio.textContent =  `${divisa}${info.precio}`;
-                    // Boton
-                    const miNodoBoton = document.createElement('button');
-                    miNodoBoton.classList.add('btn', 'btn-primary');
-                    miNodoBoton.textContent = 'Agregar';
-                    miNodoBoton.setAttribute('marcador', info.id);
-                    miNodoBoton.addEventListener('click', anadirProductoAlCarrito);
+                        const miNodo = document.createElement('div');
+                        miNodo.classList.add('card','col-sm-4');
+                        //body
+                        const miNodoCardBody = document.createElement('div');
+                        miNodoCardBody.classList.add('card-body');
+                        //titulo
+                        const miNodoTitle = document.createElement('h6');
+                        miNodoTitle.classList.add('card-tilte');
+                        miNodoTitle.textContent =info.nombre;
+                        //imagen
+                        const miNodoImagen = document.createElement('img');
+                        miNodoImagen.classList.add('img-fluid');
+                        miNodoImagen.setAttribute('src',info.imagen);
+                        //precio
+                        const miNodoPrecio = document.createElement('p');
+                        miNodoPrecio.classList.add('card-text');
+                        miNodoPrecio.textContent =  `${divisa}${info.precio}`;
+                        // Boton
+                        const miNodoBoton = document.createElement('button');
+                        miNodoBoton.classList.add('btn', 'btn-primary');
+                        miNodoBoton.textContent = 'Agregar';
+                        miNodoBoton.setAttribute('marcador', info.id);
+                        miNodoBoton.addEventListener('click', anadirProductoAlCarrito);
 
-                    //insertamos
-                    miNodoCardBody.appendChild(miNodoImagen);
-                    miNodoCardBody.appendChild(miNodoTitle);
-                    miNodoCardBody.appendChild(miNodoPrecio);
-                    miNodoCardBody.appendChild(miNodoBoton);
-                    miNodo.appendChild(miNodoCardBody);
-                    DOMitems.appendChild(miNodo);
+                        //insertamos
+                        miNodoCardBody.appendChild(miNodoImagen);
+                        miNodoCardBody.appendChild(miNodoTitle);
+                        miNodoCardBody.appendChild(miNodoPrecio);
+                        miNodoCardBody.appendChild(miNodoBoton);
+                        miNodo.appendChild(miNodoCardBody);
+                        DOMitems.appendChild(miNodo);
                 });
-               }
+            }
+// Obtén el contador del almacenamiento local
+let visitas = localStorage.getItem('contadorVisitas');
+
+// Si no hay visitas almacenadas, inicializa a 0
+if (!visitas) {
+    visitas = 0;
+}
+
+// Incrementa el contador
+visitas++;
+
+// Guarda el nuevo contador en el almacenamiento local
+localStorage.setItem('contadorVisitas', visitas);
+
+// Muestra el contador en la página
+document.getElementById('contador').textContent = visitas;
                /**
           * Evento para añadir un producto al carrito de la compra
           */
