@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded',() =>{
     
     function renderizarProductos() {
         DOMitems.innerHTML = "";
-
         const filtro = filtroSelect.value;
         const productosFiltrados = baseDeDatos.filter(producto =>            
             filtro === "todas" || producto.categoria === filtro);
@@ -89,7 +88,6 @@ document.addEventListener('DOMContentLoaded',() =>{
             miNodoBoton.textContent = 'Agregar';
             miNodoBoton.setAttribute('marcador', info.id);
             miNodoBoton.addEventListener('click', anadirProductoAlCarrito);
-
             //insertamos
             miNodoCardBody.appendChild(miNodoImagen);
             miNodoCardBody.appendChild(miNodoTitle);
@@ -100,24 +98,18 @@ document.addEventListener('DOMContentLoaded',() =>{
         });
     }
 // Obtén el contador del almacenamiento local
-let visitas = localStorage.getItem('contadorVisitas');
+    let visitas = localStorage.getItem('contadorVisitas');
 
 // Si no hay visitas almacenadas, inicializa a 0
-if (!visitas) {
+    if (!visitas) {
     visitas = 0;
-}
-
+    }
 // Incrementa el contador
-visitas++;
-
+    visitas++;
 // Guarda el nuevo contador en el almacenamiento local
-localStorage.setItem('contadorVisitas', visitas);
-
+    localStorage.setItem('contadorVisitas', visitas);
 // Muestra el contador en la página
-document.getElementById('contador').textContent = visitas;
-               /**
-    * Evento para añadir un producto al carrito de la compra
-    */
+    document.getElementById('contador').textContent = visitas;
     function anadirProductoAlCarrito(evento) {
         // Anyadimos el Nodo a nuestro carrito
         carrito.push(evento.target.getAttribute('marcador'))
