@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COYSI-Contacto</title>
-</head>
-<body>
          <!-- iconos-->
     <link rel="apple-touch-icon" href="assets/img/COYSI.jpg">
     <!-- css-->
@@ -17,7 +15,7 @@
 </head>
 <body>
     <!-- inicio encabezado-->
-     <nav class="navbar navbar-expand-lg bg-dark navbar-light" id="templatemo_nav_top">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light" id="templatemo_nav_top">
         <div class="container text-light">
             <div class="w-100 d-flex justify-content-between">
                 <div>
@@ -34,11 +32,11 @@
             </div>
 
         </div>
-     </nav>
+    </nav>
 
     <!-- fin encabezado-->
      <!-- inicio Menu-->
-      <nav class="navbar navbar-expand-lg navbar-light shadow">
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#opciones">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -67,7 +65,7 @@
             </div>
         </div>
 
-      </nav>
+    </nav>
     <!-- inicio del cuerpo-->
     <div class="container-fluid bg-light py-5">
         <div class="col-md-8 m-auto text-center">
@@ -90,12 +88,43 @@
             </ul>
         
             <!-- insertar mapa-->
-        <iframe src="https://www.google.com/maps/place/Puebloviejo,+Magdalena/@10.9937063,-74.2835128,17z/data=!4m6!3m5!1s0x8ef45440dd6d02d3:0x6c58193a9ee949f0!8m2!3d10.992353!4d-74.284038!16s%2Fm%2F02py1g1?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7952.519277516678!2d-74.04437371283194!3d4.724902673421432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f855d7149daaf%3A0x62bb0234ea330481!2zQ2Vkcml0b3MsIFVzYXF1w6luLCBCb2dvdMOh!5e0!3m2!1ses!2sco!4v1730174778845!5m2!1ses!2sco" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         
         </div>
 
-     </div>
-<!-- fin del cuerpo-->
+    </div>
+    <!-- fin del cuerpo-->
+        <!-- formulario de contacto-->
+        <div class="conatiner py-5">
+            <div class="row py-5">
+                <form class="col-md-8 m-auto" method="post" role="form">
+                    <div class="row">
+                        <div class="form-group col-md-4 mb-3">
+                            <label for="inputname">Nombre</label>
+                            <input type="text" class="form-control mt-1" id="nombre" name="nombre" placeholder="Nombre">
+                        </div>
+                        <div class="form-group col-md-4 mb-3">
+                            <label for="inputmail">Email</label>
+                            <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputmensaje">Mensaje</label>
+                            <textarea class="form-control mt-1" id="mensaje" name="mensaje" placeholder="Mensaje" rows="8">
+
+                            </textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col text-end mt-2">
+                                <button type="submit" class="btn btn-success btn-lg px-3">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+         </div>
+
+        <!-- fin de contacto-->
+
          <!-- inicio de pie-->
     <footer class="bg-dark" id="templatemo_footer">
         <div class="container">
