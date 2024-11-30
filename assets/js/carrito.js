@@ -7,43 +7,43 @@ document.addEventListener('DOMContentLoaded', () => {
             id:1,
             nombre: 'Medicina Psiquiatrica',
             precio: 250000,
-            imagen: 'assets/img/2.jpg'
-            categoria: consulta Externa
+            imagen: 'assets/img/2.jpg',
+            categoria: 'consulta Externa'
         },
         {
             id:3,
             nombre: 'Psicologia',
             precio: 80000,
-            imagen: 'assets/img/1.jpg'
-            categoria: consulta Externa
+            imagen: 'assets/img/1.jpg',
+            categoria: 'consulta Externa'
         },
         {
             id:2,
             nombre: 'Medicina',
             precio: 50000,
-            imagen: 'assets/img/3.jpg'
-            categoria: consulta Externa
+            imagen: 'assets/img/3.jpg',
+            categoria: 'consulta Externa'
         },
         {
             id:4,
             nombre: 'Fonoaudiologia',
             precio: 70000,
-            imagen: 'assets/img/4.jpg'
-            categoria: consulta Externa
+            imagen: 'assets/img/4.jpg',
+            categoria: 'consulta Externa'
         },
         {
             id:5,
             nombre: 'Teraía Ocupacional',
             precio: 90000,
-            imagen: 'assets/img/5.jpg'
-            categoria: consulta Externa
+            imagen: 'assets/img/5.jpg',
+            categoria: 'consulta Externa'
         },
         {
             id:6,
             nombre: 'Fisioterapia',
             precio: 50000,
-            imagen: 'assets/img/1.jpg'
-            categoria: consulta Externa
+            imagen: 'assets/img/1.jpg',
+            categoria: 'consulta Externa'
         },
     ];
 
